@@ -1,10 +1,12 @@
 package hu.nye.progkorny;
 
+import hu.nye.progkorny.config.AppConfig;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
 public class App {
     public static void main(String[] args) {
-        MySQLDatabase mySQLDatabase = new MySQLDatabase();
-        PostgresSQLDatabase postgresSQLDatabase = new PostgresSQLDatabase();
-        Service service = new Service(mySQLDatabase);
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+        Service service = context.getBean(Service.class);
         service.saveSomething("adat");
     }
 }
