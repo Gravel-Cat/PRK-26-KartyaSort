@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 @Repository
 public class KartyaRepository {
     public List<Kartya> getAllKartya() {
-        Kartya kartya1 = new Kartya(1L, "kártya1", "csoport1", "grass", "common");
-        Kartya kartya2 = new Kartya(2L, "kártya2", "csoport1", "water", "rare");
+        Kartya kartya1 = new Kartya(1L, "kártya1", "grass", "common");
+        Kartya kartya2 = new Kartya(2L, "kártya2", "water", "rare");
         return List.of(kartya1, kartya2);
     }
 
     public Kartya getKartyaById(@PathVariable Long id) {
-        Kartya kartya1 = new Kartya(1L, "kártya1", "csoport1", "grass", "common");
-        Kartya kartya2 = new Kartya(2L, "kártya2", "csoport1", "water", "rare");
+        Kartya kartya1 = new Kartya(1L, "kártya1", "grass", "common");
+        Kartya kartya2 = new Kartya(2L, "kártya2", "water", "rare");
         List<Kartya> kartyak = List.of(kartya1, kartya2);
 
         return kartyak.stream().filter(kartya -> kartya.getId().equals(id)).findFirst().get();
