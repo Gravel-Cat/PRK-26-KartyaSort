@@ -19,4 +19,8 @@ public class KartyaService {
     public Kartya getKartyaById(Long id) {
         return kartyaRepository.getKartyaById(id);
     }
+
+    public List<Kartya> getKartyaByExpansion(String expansion) {
+        return kartyaRepository.getKartyaByExpansion(expansion);
+    }
 }

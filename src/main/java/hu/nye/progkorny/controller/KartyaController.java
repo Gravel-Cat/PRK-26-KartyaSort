@@ -21,9 +21,14 @@ public class KartyaController {
         return kartyaService.getAllKartya();
     }
 
-    @GetMapping("/{id}")
-    public Kartya getAllKartya(@PathVariable Long id) {
+    @GetMapping("/id:{id}")
+    public Kartya getKartyaById(@PathVariable Long id) {
         return kartyaService.getKartyaById(id);
+    }
+
+    @GetMapping("/expansion:{expansion}")
+    public List<Kartya> getKartyaByExpansion(@PathVariable String expansion) {
+        return kartyaService.getKartyaByExpansion(expansion);
     }
 
 }
