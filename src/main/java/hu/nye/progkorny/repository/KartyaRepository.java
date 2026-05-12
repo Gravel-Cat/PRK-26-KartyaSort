@@ -17,7 +17,7 @@ public class KartyaRepository {
     static Kartya kartya6 = new Kartya(6L, "Ceruledge", "fire", "paldea", "uncommon");
     static Kartya kartya7 = new Kartya(7L, "Meganium", "grass", "johto", "uncommon");
     static Kartya kartya8 = new Kartya(8L, "Glimmora", "fighting", "paldea", "common");
-    static Kartya kartya9 = new Kartya(9L, "Chandelure", "psychic", "kalos", "common");
+    static Kartya kartya9 = new Kartya(9L, "Chandelure", "psychic", "unova", "common");
     static Kartya kartya10 = new Kartya(10L, "Lucario", "fighting", "sinnoh", "rare");
     static List<Kartya> kartyak = List.of(kartya1, kartya2, kartya3, kartya4, kartya5, kartya6, kartya7, kartya8, kartya9, kartya10);
 
