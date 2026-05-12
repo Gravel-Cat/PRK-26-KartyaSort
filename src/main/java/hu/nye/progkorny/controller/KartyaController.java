@@ -26,9 +26,24 @@ public class KartyaController {
         return kartyaService.getKartyaById(id);
     }
 
+    @GetMapping("/name:{name}")
+    public List<Kartya> getKartyaByName(@PathVariable String name) {
+        return kartyaService.getKartyaByName(name);
+    }
+
+    @GetMapping("/type:{type}")
+    public List<Kartya> getKartyaByType(@PathVariable String type) {
+        return kartyaService.getKartyaByType(type);
+    }
+
     @GetMapping("/expansion:{expansion}")
     public List<Kartya> getKartyaByExpansion(@PathVariable String expansion) {
         return kartyaService.getKartyaByExpansion(expansion);
+    }
+
+    @GetMapping("/rarity:{rarity}")
+    public List<Kartya> getKartyaByRarity(@PathVariable String rarity) {
+        return kartyaService.getKartyaByRarity(rarity);
     }
 
 }

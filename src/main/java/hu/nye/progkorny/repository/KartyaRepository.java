@@ -29,7 +29,19 @@ public class KartyaRepository {
         return kartyak.stream().filter(kartya -> kartya.getId().equals(id)).findFirst().get();
     }
 
+    public List<Kartya> getKartyaByName (@PathVariable String name) {
+        return kartyak.stream().filter(kartya -> kartya.getExpansion().equals(name)).collect(Collectors.toList());
+    }
+
+    public List<Kartya> getKartyaByType (@PathVariable String type) {
+        return kartyak.stream().filter(kartya -> kartya.getExpansion().equals(type)).collect(Collectors.toList());
+    }
+
     public List<Kartya> getKartyaByExpansion(@PathVariable String expansion) {
         return kartyak.stream().filter(kartya -> kartya.getExpansion().equals(expansion)).collect(Collectors.toList());
+    }
+
+    public List<Kartya> getKartyaByRarity (@PathVariable String rarity) {
+        return kartyak.stream().filter(kartya -> kartya.getExpansion().equals(rarity)).collect(Collectors.toList());
     }
 }

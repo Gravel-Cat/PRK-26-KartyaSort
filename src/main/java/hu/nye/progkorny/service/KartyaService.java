@@ -20,7 +20,19 @@ public class KartyaService {
         return kartyaRepository.getKartyaById(id);
     }
 
+    public List<Kartya> getKartyaByName(String name) {
+        return kartyaRepository.getKartyaByName(name);
+    }
+
+    public List<Kartya> getKartyaByType(String type) {
+        return kartyaRepository.getKartyaByType(type);
+    }
+
     public List<Kartya> getKartyaByExpansion(String expansion) {
         return kartyaRepository.getKartyaByExpansion(expansion);
+    }
+
+    public List<Kartya> getKartyaByRarity(String rarity) {
+        return kartyaRepository.getKartyaByRarity(rarity);
     }
 }
