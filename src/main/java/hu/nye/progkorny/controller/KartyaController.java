@@ -16,32 +16,32 @@ public class KartyaController {
     @Autowired
     KartyaService kartyaService;
 
-    @GetMapping
+    @GetMapping("/read")
     public List<Kartya> getAllKartya() {
         return kartyaService.getAllKartya();
     }
 
-    @GetMapping("/id:{id}")
+    @GetMapping("/read/id:{id}")
     public Kartya getKartyaById(@PathVariable Long id) {
         return kartyaService.getKartyaById(id);
     }
 
-    @GetMapping("/name:{name}")
+    @GetMapping("/read/name:{name}")
     public List<Kartya> getKartyaByName(@PathVariable String name) {
         return kartyaService.getKartyaByName(name);
     }
 
-    @GetMapping("/type:{type}")
+    @GetMapping("/read/type:{type}")
     public List<Kartya> getKartyaByType(@PathVariable String type) {
         return kartyaService.getKartyaByType(type);
     }
 
-    @GetMapping("/expansion:{expansion}")
+    @GetMapping("/read/expansion:{expansion}")
     public List<Kartya> getKartyaByExpansion(@PathVariable String expansion) {
         return kartyaService.getKartyaByExpansion(expansion);
     }
 
-    @GetMapping("/rarity:{rarity}")
+    @GetMapping("/read/rarity:{rarity}")
     public List<Kartya> getKartyaByRarity(@PathVariable String rarity) {
         return kartyaService.getKartyaByRarity(rarity);
     }

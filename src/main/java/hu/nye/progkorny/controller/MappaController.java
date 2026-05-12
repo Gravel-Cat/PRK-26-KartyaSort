@@ -16,17 +16,17 @@ public class MappaController {
     @Autowired
     MappaService mappaService;
 
-    @GetMapping
+    @GetMapping("/read")
     public List<Mappa> getAllMappa() {
         return mappaService.getAllMappa();
     }
 
-    @GetMapping("/id:{id}")
+    @GetMapping("/read/id:{id}")
     public Mappa getMappaById(@PathVariable Long id) {
         return mappaService.getMappaById(id);
     }
 
-    @GetMapping("/name:{name}")
+    @GetMapping("/read/name:{name}")
     public List<Mappa> getMappaByName(@PathVariable String name) {
         return mappaService.getMappaByName(name);
     }

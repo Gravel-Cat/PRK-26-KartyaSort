@@ -16,22 +16,22 @@ public class KiegeszitoController {
     @Autowired
     KiegeszitoService kiegeszitoService;
 
-    @GetMapping
+    @GetMapping("/read")
     public List<Kiegeszito> getAllKiegeszito() {
         return kiegeszitoService.getAllKiegeszito();
     }
 
-    @GetMapping("/id:{id}")
+    @GetMapping("/read/id:{id}")
     public Kiegeszito getKiegeszitoById(@PathVariable Long id) {
         return kiegeszitoService.getKiegeszitoById(id);
     }
 
-    @GetMapping("/name:{name}")
+    @GetMapping("/read/name:{name}")
     public List<Kiegeszito> getKiegeszitoByName(@PathVariable String name) {
         return kiegeszitoService.getKiegeszitoByName(name);
     }
 
-    @GetMapping("/size:{size}")
+    @GetMapping("/read/size:{size}")
     public List<Kiegeszito> getKiegeszitoBySize(@PathVariable int size) {
         return kiegeszitoService.getKiegeszitoBySize(size);
     }
