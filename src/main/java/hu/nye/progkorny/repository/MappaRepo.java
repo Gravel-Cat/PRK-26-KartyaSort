@@ -1,17 +1,17 @@
 package hu.nye.progkorny.repository;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import hu.nye.progkorny.model.Mappa;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 @Repository
-public class MappaRepository {
-    static Mappa mappa1 = new Mappa(1L, "Főmappa", List.of(KartyaRepository.kartya1,KartyaRepository.kartya2,KartyaRepository.kartya3,KartyaRepository.kartya4,KartyaRepository.kartya5,KartyaRepository.kartya6));
-    static Mappa mappa2 = new Mappa(2L, "Mellékmappa", List.of(KartyaRepository.kartya7,KartyaRepository.kartya8,KartyaRepository.kartya9,KartyaRepository.kartya10));
-    static List<Mappa> mappak = List.of(mappa1,mappa2);
+public class MappaRepo {
+    static Mappa mappa1 = new Mappa(1L, "Főmappa", List.of(KartyaRepo.kartya1, KartyaRepo.kartya2, KartyaRepo.kartya3, KartyaRepo.kartya4, KartyaRepo.kartya5, KartyaRepo.kartya6));
+    static Mappa mappa2 = new Mappa(2L, "Mellékmappa", List.of(KartyaRepo.kartya7, KartyaRepo.kartya8, KartyaRepo.kartya9, KartyaRepo.kartya10));
+    static List<Mappa> mappak = List.of(mappa1, mappa2);
 
     public static List<Mappa> getAllMappa() {
         return mappak;

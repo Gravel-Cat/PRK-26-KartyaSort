@@ -3,32 +3,32 @@ package hu.nye.progkorny.service;
 import java.util.List;
 
 import hu.nye.progkorny.model.Kartya;
-import hu.nye.progkorny.repository.KartyaRepository;
+import hu.nye.progkorny.repository.KartyaRepo;
 import org.springframework.stereotype.Service;
 
 @Service
 public class KartyaService {
     public List<Kartya> getAllKartya() {
-        return KartyaRepository.getAllKartya();
+        return KartyaRepo.getAllKartya();
     }
 
     public Kartya getKartyaById(Long id) {
-        return KartyaRepository.getKartyaById(id);
+        return KartyaRepo.getKartyaById(id);
     }
 
     public List<Kartya> getKartyaByName(String name) {
-        return KartyaRepository.getKartyaByName(name);
+        return KartyaRepo.getKartyaByName(name);
     }
 
     public List<Kartya> getKartyaByType(String type) {
-        return KartyaRepository.getKartyaByType(type);
+        return KartyaRepo.getKartyaByType(type);
     }
 
     public List<Kartya> getKartyaByExpansion(String expansion) {
-        return KartyaRepository.getKartyaByExpansion(expansion);
+        return KartyaRepo.getKartyaByExpansion(expansion);
     }
 
     public List<Kartya> getKartyaByRarity(String rarity) {
-        return KartyaRepository.getKartyaByRarity(rarity);
+        return KartyaRepo.getKartyaByRarity(rarity);
     }
 }

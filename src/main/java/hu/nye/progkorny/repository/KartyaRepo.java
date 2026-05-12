@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.PathVariable;
 
 @Repository
-public class KartyaRepository {
+public class KartyaRepo {
     static Kartya kartya1 = new Kartya(1L, "Leafeon", "grass", "sinnoh", "rare");
     static Kartya kartya2 = new Kartya(2L, "Vivillon", "grass", "kalos", "common");
     static Kartya kartya3 = new Kartya(3L, "Rotom", "electric", "sinnoh", "common");
@@ -29,11 +29,11 @@ public class KartyaRepository {
         return kartyak.stream().filter(kartya -> kartya.getId().equals(id)).findFirst().get();
     }
 
-    public static List<Kartya> getKartyaByName (@PathVariable String name) {
+    public static List<Kartya> getKartyaByName(@PathVariable String name) {
         return kartyak.stream().filter(kartya -> kartya.getName().equals(name)).collect(Collectors.toList());
     }
 
-    public static List<Kartya> getKartyaByType (@PathVariable String type) {
+    public static List<Kartya> getKartyaByType(@PathVariable String type) {
         return kartyak.stream().filter(kartya -> kartya.getType().equals(type)).collect(Collectors.toList());
     }
 
@@ -41,7 +41,7 @@ public class KartyaRepository {
         return kartyak.stream().filter(kartya -> kartya.getExpansion().equals(expansion)).collect(Collectors.toList());
     }
 
-    public static List<Kartya> getKartyaByRarity (@PathVariable String rarity) {
+    public static List<Kartya> getKartyaByRarity(@PathVariable String rarity) {
         return kartyak.stream().filter(kartya -> kartya.getRarity().equals(rarity)).collect(Collectors.toList());
     }
 }
