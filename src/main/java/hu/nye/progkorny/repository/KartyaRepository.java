@@ -30,11 +30,11 @@ public class KartyaRepository {
     }
 
     public List<Kartya> getKartyaByName (@PathVariable String name) {
-        return kartyak.stream().filter(kartya -> kartya.getExpansion().equals(name)).collect(Collectors.toList());
+        return kartyak.stream().filter(kartya -> kartya.getName().equals(name)).collect(Collectors.toList());
     }
 
     public List<Kartya> getKartyaByType (@PathVariable String type) {
-        return kartyak.stream().filter(kartya -> kartya.getExpansion().equals(type)).collect(Collectors.toList());
+        return kartyak.stream().filter(kartya -> kartya.getType().equals(type)).collect(Collectors.toList());
     }
 
     public List<Kartya> getKartyaByExpansion(@PathVariable String expansion) {
@@ -42,6 +42,6 @@ public class KartyaRepository {
     }
 
     public List<Kartya> getKartyaByRarity (@PathVariable String rarity) {
-        return kartyak.stream().filter(kartya -> kartya.getExpansion().equals(rarity)).collect(Collectors.toList());
+        return kartyak.stream().filter(kartya -> kartya.getRarity().equals(rarity)).collect(Collectors.toList());
     }
 }
