@@ -7,7 +7,7 @@ import hu.nye.progkorny.repository.KiegeszitoRepo;
 import org.springframework.stereotype.Service;
 
 @Service
-public class KiegeszitoService {
+public class KiegeszitoReadService {
     public List<Kiegeszito> getAllKiegeszito() {
         return KiegeszitoRepo.getAllKiegeszito();
     }

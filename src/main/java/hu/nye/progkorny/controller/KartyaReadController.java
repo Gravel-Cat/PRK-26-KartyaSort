@@ -3,7 +3,7 @@ package hu.nye.progkorny.controller;
 import java.util.List;
 
 import hu.nye.progkorny.model.Kartya;
-import hu.nye.progkorny.service.KartyaService;
+import hu.nye.progkorny.service.KartyaReadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,39 +11,39 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/kartyak")
-public class KartyaController {
+@RequestMapping("/api/kartyak/read")
+public class KartyaReadController {
     @Autowired
-    KartyaService kartyaService;
+    KartyaReadService kartyaReadService;
 
-    @GetMapping("/read")
+    //READ methods
+    @GetMapping()
     public List<Kartya> getAllKartya() {
-        return kartyaService.getAllKartya();
+        return kartyaReadService.getAllKartya();
     }
 
-    @GetMapping("/read/id:{id}")
+    @GetMapping("/id:{id}")
     public Kartya getKartyaById(@PathVariable Long id) {
-        return kartyaService.getKartyaById(id);
+        return kartyaReadService.getKartyaById(id);
     }
 
-    @GetMapping("/read/name:{name}")
+    @GetMapping("/name:{name}")
     public List<Kartya> getKartyaByName(@PathVariable String name) {
-        return kartyaService.getKartyaByName(name);
+        return kartyaReadService.getKartyaByName(name);
     }
 
-    @GetMapping("/read/type:{type}")
+    @GetMapping("/type:{type}")
     public List<Kartya> getKartyaByType(@PathVariable String type) {
-        return kartyaService.getKartyaByType(type);
+        return kartyaReadService.getKartyaByType(type);
     }
 
-    @GetMapping("/read/expansion:{expansion}")
+    @GetMapping("/expansion:{expansion}")
     public List<Kartya> getKartyaByExpansion(@PathVariable String expansion) {
-        return kartyaService.getKartyaByExpansion(expansion);
+        return kartyaReadService.getKartyaByExpansion(expansion);
     }
 
-    @GetMapping("/read/rarity:{rarity}")
+    @GetMapping("/rarity:{rarity}")
     public List<Kartya> getKartyaByRarity(@PathVariable String rarity) {
-        return kartyaService.getKartyaByRarity(rarity);
+        return kartyaReadService.getKartyaByRarity(rarity);
     }
-
 }

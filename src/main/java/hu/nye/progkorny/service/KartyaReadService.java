@@ -7,7 +7,7 @@ import hu.nye.progkorny.repository.KartyaRepo;
 import org.springframework.stereotype.Service;
 
 @Service
-public class KartyaService {
+public class KartyaReadService {
     public List<Kartya> getAllKartya() {
         return KartyaRepo.getAllKartya();
     }

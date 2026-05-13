@@ -25,6 +25,7 @@ public class KartyaRepo {
         return kartyak;
     }
 
+    // READ methods
     public static Kartya getKartyaById(@PathVariable Long id) {
         return kartyak.stream().filter(kartya -> kartya.getId().equals(id)).findFirst().get();
     }
@@ -43,5 +44,31 @@ public class KartyaRepo {
 
     public static List<Kartya> getKartyaByRarity(@PathVariable String rarity) {
         return kartyak.stream().filter(kartya -> kartya.getRarity().equals(rarity)).collect(Collectors.toList());
+    }
+
+    //DELETE methods
+    public static List<Kartya> deleteKartyaById(@PathVariable Long id) {
+        kartyak = kartyak.stream().filter(kartya -> !kartya.getId().equals(id)).collect(Collectors.toList());
+        return kartyak;
+    }
+
+    public static List<Kartya> deleteKartyaByName(@PathVariable String name) {
+        kartyak = kartyak.stream().filter(kartya -> !kartya.getName().equals(name)).collect(Collectors.toList());
+        return kartyak;
+    }
+
+    public static List<Kartya> deleteKartyaByType(@PathVariable String type) {
+        kartyak = kartyak.stream().filter(kartya -> !kartya.getType().equals(type)).collect(Collectors.toList());
+        return kartyak;
+    }
+
+    public static List<Kartya> deleteKartyaByExpansion(@PathVariable String expansion) {
+        kartyak = kartyak.stream().filter(kartya -> !kartya.getExpansion().equals(expansion)).collect(Collectors.toList());
+        return kartyak;
+    }
+
+    public static List<Kartya> deleteKartyaByRarity(@PathVariable String rarity) {
+        kartyak = kartyak.stream().filter(kartya -> !kartya.getRarity().equals(rarity)).collect(Collectors.toList());
+        return kartyak;
     }
 }

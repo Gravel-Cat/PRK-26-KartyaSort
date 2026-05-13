@@ -7,7 +7,7 @@ import hu.nye.progkorny.repository.MappaRepo;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MappaService {
+public class MappaReadService {
     public List<Mappa> getAllMappa() {
         return MappaRepo.getAllMappa();
     }
