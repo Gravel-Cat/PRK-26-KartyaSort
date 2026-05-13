@@ -1,10 +1,10 @@
 package hu.nye.progkorny.service;
 
+import java.util.List;
+
 import hu.nye.progkorny.model.Kartya;
 import hu.nye.progkorny.repository.KartyaRepo;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class KartyaDeleteService {
