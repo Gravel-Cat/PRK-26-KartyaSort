@@ -58,19 +58,31 @@ public class KartyaRepo {
 
     // UPDATE methods
     public static List<Kartya> updateKartya(@PathVariable Long id, @PathVariable String field, @PathVariable String data) {
-        int index=0;
-        for (int i=0; i<kartyak.toArray().length; i++) {
+        int index = 0;
+        for (int i = 0; i < kartyak.toArray().length; i++) {
             if (Objects.equals(kartyak.get(i).getId(), id)) {
                 index = i;
                 break;
             }
         }
-        switch (field){
-            case "id": kartyak.get(index).setId(Long.valueOf(data));
-            case "name": kartyak.get(index).setName(data);
-            case "type": kartyak.get(index).setType(data);
-            case "expansion": kartyak.get(index).setExpansion(data);
-            case "rarity": kartyak.get(index).setRarity(data);
+        switch (field) {
+            case "id":
+                kartyak.get(index).setId(Long.valueOf(data));
+                break;
+            case "name":
+                kartyak.get(index).setName(data);
+                break;
+            case "type":
+                kartyak.get(index).setType(data);
+                break;
+            case "expansion":
+                kartyak.get(index).setExpansion(data);
+                break;
+            case "rarity":
+                kartyak.get(index).setRarity(data);
+                break;
+            default:
+                break;
         }
         return kartyak;
     }
