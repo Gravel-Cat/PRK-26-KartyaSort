@@ -23,10 +23,6 @@ public class KartyaRepo {
     static Kartya kartya10 = new Kartya(10L, "Lucario", "fighting", "sinnoh", "rare");
     static List<Kartya> kartyak = List.of(kartya1, kartya2, kartya3, kartya4, kartya5, kartya6, kartya7, kartya8, kartya9, kartya10);
 
-    public static List<Kartya> getAllKartya() {
-        return kartyak;
-    }
-
     // CREATE methods
     public static List<Kartya> createKartya(@PathVariable Long id, @PathVariable String name, @PathVariable String type, @PathVariable String expansion, @PathVariable String rarity) {
         List<Kartya> tempKartyak = new ArrayList<>(kartyak);
@@ -36,6 +32,10 @@ public class KartyaRepo {
     }
 
     // READ methods
+    public static List<Kartya> getAllKartya() {
+        return kartyak;
+    }
+
     public static Kartya getKartyaById(@PathVariable Long id) {
         return kartyak.stream().filter(kartya -> kartya.getId().equals(id)).findFirst().get();
     }
