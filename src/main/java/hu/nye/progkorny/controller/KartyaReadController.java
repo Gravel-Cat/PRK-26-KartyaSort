@@ -16,7 +16,6 @@ public class KartyaReadController {
     @Autowired
     KartyaReadService kartyaReadService;
 
-    //READ methods
     @GetMapping()
     public List<Kartya> getAllKartya() {
         return kartyaReadService.getAllKartya();

@@ -1,5 +1,6 @@
 package hu.nye.progkorny.repository;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,6 +26,14 @@ public class KartyaRepo {
         return kartyak;
     }
 
+    // CREATE methods
+    public static List<Kartya> createKartya(@PathVariable Long id, @PathVariable String name, @PathVariable String type, @PathVariable String expansion, @PathVariable String rarity) {
+        List<Kartya> tempKartyak = new ArrayList<>(kartyak);
+        tempKartyak.add(new Kartya(id, name, type, expansion, rarity));
+        kartyak = tempKartyak;
+        return kartyak;
+    }
+
     // READ methods
     public static Kartya getKartyaById(@PathVariable Long id) {
         return kartyak.stream().filter(kartya -> kartya.getId().equals(id)).findFirst().get();
@@ -46,7 +55,9 @@ public class KartyaRepo {
         return kartyak.stream().filter(kartya -> kartya.getRarity().equals(rarity)).collect(Collectors.toList());
     }
 
-    //DELETE methods
+    // UPDATE methods
+
+    // DELETE methods
     public static List<Kartya> deleteKartyaById(@PathVariable Long id) {
         kartyak = kartyak.stream().filter(kartya -> !kartya.getId().equals(id)).collect(Collectors.toList());
         return kartyak;
