@@ -6,9 +6,21 @@ import lombok.Data;
 
 @Data
 public class Mappa {
-    private final Long id;
-    private final String name;
-    private final List<Kartya> cards;
+    private Long id;
+    private String name;
+    private List<Kartya> cards;
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCards(List<Kartya> cards) {
+        this.cards = cards;
+    }
 
     public Long getId() {
         return id;

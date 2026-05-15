@@ -1,0 +1,14 @@
+package hu.nye.progkorny.service;
+
+import java.util.List;
+
+import hu.nye.progkorny.model.Mappa;
+import hu.nye.progkorny.repository.MappaRepo;
+import org.springframework.stereotype.Service;
+
+@Service
+public class MappaUpdateService {
+    public List<Mappa> updateMappa(Long id, String field, String data) {
+        return MappaRepo.updateMappa(id, field, data);
+    }
+}

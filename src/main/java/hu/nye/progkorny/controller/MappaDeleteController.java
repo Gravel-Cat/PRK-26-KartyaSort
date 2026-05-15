@@ -3,7 +3,7 @@ package hu.nye.progkorny.controller;
 import java.util.List;
 
 import hu.nye.progkorny.model.Mappa;
-import hu.nye.progkorny.service.MappaReadService;
+import hu.nye.progkorny.service.MappaDeleteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,23 +11,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/mappak/read")
-public class MappaReadController {
+@RequestMapping("/api/mappak/delete")
+public class MappaDeleteController {
     @Autowired
-    MappaReadService mappaReadService;
-
-    @GetMapping()
-    public List<Mappa> getAllMappa() {
-        return mappaReadService.getAllMappa();
-    }
+    MappaDeleteService mappaDeleteService;
 
     @GetMapping("/id:{id}")
-    public Mappa getMappaById(@PathVariable Long id) {
-        return mappaReadService.getMappaById(id);
+    public List<Mappa> deleteMappaById(@PathVariable Long id) {
+        return mappaDeleteService.deleteMappaById(id);
     }
 
     @GetMapping("/name:{name}")
-    public List<Mappa> getMappaByName(@PathVariable String name) {
-        return mappaReadService.getMappaByName(name);
+    public List<Mappa> deleteMappaByName(@PathVariable String name) {
+        return mappaDeleteService.deleteMappaByName(name);
     }
 }
