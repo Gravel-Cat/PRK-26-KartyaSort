@@ -4,11 +4,31 @@ import lombok.Data;
 
 @Data
 public class Kartya {
-    private final Long id;
-    private final String name;
-    private final String type;
-    private final String expansion;
-    private final String rarity;
+    private Long id;
+    private String name;
+    private String type;
+    private String expansion;
+    private String rarity;
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setRarity(String rarity) {
+        this.rarity = rarity;
+    }
+
+    public void setExpansion(String expansion) {
+        this.expansion = expansion;
+    }
 
     public Long getId() {
         return id;

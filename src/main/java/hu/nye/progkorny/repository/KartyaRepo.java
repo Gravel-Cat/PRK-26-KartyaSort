@@ -2,6 +2,7 @@ package hu.nye.progkorny.repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import hu.nye.progkorny.model.Kartya;
@@ -56,6 +57,23 @@ public class KartyaRepo {
     }
 
     // UPDATE methods
+    public static List<Kartya> updateKartya(@PathVariable Long id, @PathVariable String field, @PathVariable String data) {
+        int index=0;
+        for (int i=0; i<kartyak.toArray().length; i++) {
+            if (Objects.equals(kartyak.get(i).getId(), id)) {
+                index = i;
+                break;
+            }
+        }
+        switch (field){
+            case "id": kartyak.get(index).setId(Long.valueOf(data));
+            case "name": kartyak.get(index).setName(data);
+            case "type": kartyak.get(index).setType(data);
+            case "expansion": kartyak.get(index).setExpansion(data);
+            case "rarity": kartyak.get(index).setRarity(data);
+        }
+        return kartyak;
+    }
 
     // DELETE methods
     public static List<Kartya> deleteKartyaById(@PathVariable Long id) {
