@@ -1,6 +1,8 @@
 package hu.nye.progkorny.repository;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import hu.nye.progkorny.model.Kiegeszito;
@@ -18,6 +20,15 @@ public class KiegeszitoRepo {
     static Kiegeszito kiegeszito7 = new Kiegeszito(7L, "Paldea", 120, KartyaRepo.getKartyaByExpansion("paldea"));
     static List<Kiegeszito> kiegeszitok = List.of(kiegeszito1, kiegeszito2, kiegeszito3, kiegeszito4, kiegeszito5, kiegeszito6, kiegeszito7);
 
+    // CREATE methods
+    public static List<Kiegeszito> createKiegeszito(@PathVariable Long id, @PathVariable String name, @PathVariable int size) {
+        List<Kiegeszito> tempKiegeszitok = new ArrayList<>(kiegeszitok);
+        tempKiegeszitok.add(new Kiegeszito(id, name, size, new ArrayList<>()));
+        kiegeszitok = tempKiegeszitok;
+        return kiegeszitok;
+    }
+
+    // READ methods
     public static List<Kiegeszito> getAllKiegeszito() {
         return kiegeszitok;
     }
@@ -33,4 +44,46 @@ public class KiegeszitoRepo {
     public static List<Kiegeszito> getKiegeszitoBySize(@PathVariable int size) {
         return kiegeszitok.stream().filter(kiegeszito -> kiegeszito.getSize() == size).collect(Collectors.toList());
     }
+
+    // UPDATE methods
+    public static List<Kiegeszito> updateKiegeszito(@PathVariable Long id, @PathVariable String field, @PathVariable String data) {
+        int index = 0;
+        for (int i = 0; i < kiegeszitok.toArray().length; i++) {
+            if (Objects.equals(kiegeszitok.get(i).getId(), id)) {
+                index = i;
+                break;
+            }
+        }
+        switch (field) {
+            case "id":
+                kiegeszitok.get(index).setId(Long.valueOf(data));
+                break;
+            case "name":
+                kiegeszitok.get(index).setName(data);
+                break;
+            case "size":
+                kiegeszitok.get(index).setSize(Integer.parseInt(data));
+                break;
+            default:
+                break;
+        }
+        return kiegeszitok;
+    }
+
+    // DELETE methods
+    public static List<Kiegeszito> deleteKiegeszitoById(@PathVariable Long id) {
+        kiegeszitok = kiegeszitok.stream().filter(kiegeszitok -> !kiegeszitok.getId().equals(id)).collect(Collectors.toList());
+        return kiegeszitok;
+    }
+
+    public static List<Kiegeszito> deleteKiegeszitoByName(@PathVariable String name) {
+        kiegeszitok = kiegeszitok.stream().filter(kiegeszitok -> !kiegeszitok.getName().equals(name)).collect(Collectors.toList());
+        return kiegeszitok;
+    }
+
+    public static List<Kiegeszito> deleteKiegeszitoBySize(@PathVariable int size) {
+        kiegeszitok = kiegeszitok.stream().filter(kiegeszitok -> !(kiegeszitok.getSize() == size)).collect(Collectors.toList());
+        return kiegeszitok;
+    }
+
 }

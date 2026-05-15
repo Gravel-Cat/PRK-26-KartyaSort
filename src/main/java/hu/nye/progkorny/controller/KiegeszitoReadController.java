@@ -11,27 +11,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/kiegeszitok")
+@RequestMapping("/api/kiegeszitok/read")
 public class KiegeszitoReadController {
     @Autowired
     KiegeszitoReadService kiegeszitoReadService;
 
-    @GetMapping("/read")
+    @GetMapping()
     public List<Kiegeszito> getAllKiegeszito() {
         return kiegeszitoReadService.getAllKiegeszito();
     }
 
-    @GetMapping("/read/id:{id}")
+    @GetMapping("/id:{id}")
     public Kiegeszito getKiegeszitoById(@PathVariable Long id) {
         return kiegeszitoReadService.getKiegeszitoById(id);
     }
 
-    @GetMapping("/read/name:{name}")
+    @GetMapping("/name:{name}")
     public List<Kiegeszito> getKiegeszitoByName(@PathVariable String name) {
         return kiegeszitoReadService.getKiegeszitoByName(name);
     }
 
-    @GetMapping("/read/size:{size}")
+    @GetMapping("/size:{size}")
     public List<Kiegeszito> getKiegeszitoBySize(@PathVariable int size) {
         return kiegeszitoReadService.getKiegeszitoBySize(size);
     }
