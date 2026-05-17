@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+import hu.nye.progkorny.model.Kartya;
 import hu.nye.progkorny.model.Kiegeszito;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -67,6 +68,13 @@ public class KiegeszitoRepo {
             default:
                 break;
         }
+        return kiegeszitok;
+    }
+
+    public static List<Kiegeszito> addKartyaToKiegeszito(@PathVariable Long kartyaId, @PathVariable Long kiegeszitoId) {
+        List<Kartya> tempKartyak = new ArrayList<>(getKiegeszitoById(kiegeszitoId).getCards());
+        tempKartyak.add(KartyaRepo.getKartyaById(kartyaId));
+        getKiegeszitoById(kiegeszitoId).setCards(tempKartyak);
         return kiegeszitok;
     }
 

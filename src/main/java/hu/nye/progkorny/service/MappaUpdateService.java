@@ -11,4 +11,8 @@ public class MappaUpdateService {
     public List<Mappa> updateMappa(Long id, String field, String data) {
         return MappaRepo.updateMappa(id, field, data);
     }
+
+    public List<Mappa> addKartyaToMappa(Long kartyaId, Long mappaId) {
+        return MappaRepo.addKartyaToMappa(kartyaId, mappaId);
+    }
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+import hu.nye.progkorny.model.Kartya;
 import hu.nye.progkorny.model.Mappa;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -55,6 +56,13 @@ public class MappaRepo {
             default:
                 break;
         }
+        return mappak;
+    }
+
+    public static List<Mappa> addKartyaToMappa(@PathVariable Long kartyaId, @PathVariable Long mappaId) {
+        List<Kartya> tempKartyak = new ArrayList<>(getMappaById(mappaId).getCards());
+        tempKartyak.add(KartyaRepo.getKartyaById(kartyaId));
+        getMappaById(mappaId).setCards(tempKartyak);
         return mappak;
     }
 

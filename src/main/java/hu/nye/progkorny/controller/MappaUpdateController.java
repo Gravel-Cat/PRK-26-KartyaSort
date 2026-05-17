@@ -20,4 +20,9 @@ public class MappaUpdateController {
     public List<Mappa> updateMappa(@PathVariable Long id, @PathVariable String field, @PathVariable String data) {
         return mappaUpdateService.updateMappa(id, field, data);
     }
+
+    @GetMapping("/kartyaid:{kartyaId},mappaid:{mappaId}")
+    public List<Mappa> addKartyaToMappa(@PathVariable Long kartyaId, @PathVariable Long mappaId) {
+        return mappaUpdateService.addKartyaToMappa(kartyaId, mappaId);
+    }
 }

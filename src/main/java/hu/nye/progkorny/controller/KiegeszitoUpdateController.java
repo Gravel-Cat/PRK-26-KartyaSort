@@ -20,4 +20,9 @@ public class KiegeszitoUpdateController {
     public List<Kiegeszito> updateKiegeszito(@PathVariable Long id, @PathVariable String field, @PathVariable String data) {
         return kiegeszitoUpdateService.updateKiegeszito(id, field, data);
     }
+
+    @GetMapping("/kartyaid:{kartyaId},kiegeszitoid:{kiegeszitoId}")
+    public List<Kiegeszito> addKartyaToKiegeszito(@PathVariable Long kartyaId, @PathVariable Long kiegeszitoId) {
+        return kiegeszitoUpdateService.addKartyaToKiegeszito(kartyaId, kiegeszitoId);
+    }
 }
