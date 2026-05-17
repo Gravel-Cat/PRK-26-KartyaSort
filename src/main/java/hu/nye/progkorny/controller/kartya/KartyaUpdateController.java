@@ -1,9 +1,9 @@
-package hu.nye.progkorny.controller;
+package hu.nye.progkorny.controller.kartya;
 
 import java.util.List;
 
 import hu.nye.progkorny.model.Kartya;
-import hu.nye.progkorny.service.KartyaUpdateService;
+import hu.nye.progkorny.service.kartya.KartyaUpdateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

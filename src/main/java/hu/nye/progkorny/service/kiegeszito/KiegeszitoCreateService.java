@@ -1,4 +1,4 @@
-package hu.nye.progkorny.service;
+package hu.nye.progkorny.service.kiegeszito;
 
 import java.util.List;
 

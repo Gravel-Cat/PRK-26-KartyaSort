@@ -1,4 +1,4 @@
-package hu.nye.progkorny.service;
+package hu.nye.progkorny.service.kartya;
 
 import java.util.List;
 

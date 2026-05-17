@@ -1,9 +1,9 @@
-package hu.nye.progkorny.controller;
+package hu.nye.progkorny.controller.mappa;
 
 import java.util.List;
 
 import hu.nye.progkorny.model.Mappa;
-import hu.nye.progkorny.service.MappaDeleteService;
+import hu.nye.progkorny.service.mappa.MappaDeleteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
